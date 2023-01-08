@@ -5,12 +5,13 @@ import Home from './components/Home/Home';
 import MainHeader from './components/MainHeader/MainHeader';
 
 function App() {
+  
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     const storedUserLoggedinInformation = localStorage.getItem('isLoggedIn');
 
-    if(storedUserLoggedinInformation = '1') {
+    if(storedUserLoggedinInformation === '1') {
       setIsLoggedIn(true);
     }
   }, []);
@@ -23,7 +24,7 @@ function App() {
   };
 
   const logoutHandler = () => {
-    localStorage
+    localStorage.removeItem('isLoggedIn');
     setIsLoggedIn(false);
   };
 
